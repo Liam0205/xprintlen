@@ -1,0 +1,20 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{xprintlen}[2014/12/25 v1.0 print lengths with units]
+\RequirePackage{fp}
+\newlength{\CMarg}
+\newlength{\CMunit}
+\newcommand{\CMspace}{\,}
+\newcommand{\defaultunit}{mm}
+\newcommand{\defaultsignificant}{2}
+\newcommand*{\printlen}[1][\defaultsignificant]{%
+  \providecommand{\printlenFirstParameter}{}%
+  \renewcommand{\printlenFirstParameter}{#1}%
+  \printlenCalculate%
+}
+\newcommand*{\printlenCalculate}[2][\defaultunit]{%
+  \setlength{\CMunit}{1#1}%
+  \setlength{\CMarg}{#2}%
+  \FPdiv\CMres{\strip@pt\CMarg}{\strip@pt\CMunit}%
+  \FPround\CMres\CMres{\printlenFirstParameter}%
+  \CMres\CMspace\texttt{#1}%
+}
