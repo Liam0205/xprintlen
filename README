@@ -1,0 +1,53 @@
+                      =========================
+                        The xprintlen Package
+                      =========================
+
+
+Introduction
+------------
+
+This package defines a command, \printlen, to print lengths
+in a variety of units.
+
+This work is released under the LaTeX Project Public License,
+v1.3c or later. See the License file.
+
+Installation
+------------
+
+This package consists of the files xprintlen.sty,
+                                   xprintlen.tex,
+                                   xprintlen.pdf,
+                                   ex01.png,
+                                   README,
+                                   LICENSE.
+
+* Copy the files into proper directories searched by TeX.
+  TDS tree:
+
+    TEXMF/doc/latex/xprintlen/xprintlen.tex
+    TEXMF/doc/latex/xprintlen/xprintlen.pdf
+    TEXMF/doc/latex/xprintlen/ex01.png
+    TEXMF/doc/latex/xprintlen/README
+    TEXMF/doc/latex/xprintlen/LICENSE
+    TEXMF/tex/latex/xprintlen/xprintlen.sty
+
+* Run texhash to refresh file name data base.
+
+Basic Usage
+-----------
+
+You can read the PDF document for detailed explanations.
+
+Author
+------
+
+Liam Huang
+
+Email: liamhuang0205+xprintlen@gmail.com
+
+If you are interested in the process of development you may observe
+
+    https://github.com/LiamHuang0205/xprintlen
+
+--- end of README ---
