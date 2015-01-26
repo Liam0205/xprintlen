@@ -1,9 +1,17 @@
 %%
 %% This is file `xprintlen.sty',
-%% part of the package xprintlen.
+%% generated with the docstrip utility.
 %%
-%% Copyright (C) 2014 by Liam Huang <liamhuang0205+xprintlen@gmail.com>
-%% --------------------------------------------------------------------------
+%% The original source files were:
+%%
+%% xprintlen.dtx  (with options: `style')
+%% 
+%% -----------------------------------
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2014 -- 2015 by Liam Huang
+%% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
 %% of this license or (at your option) any later version.
@@ -11,24 +19,69 @@
 %%   http://www.latex-project.org/lppl.txt
 %% and version 1.3 or later is part of all distributions of LaTeX
 %% version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Liam Huang.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{expl3}
+\GetIdInfo$Id: xprintlen.sty 2.0a 2015-01-26$
+  {Print TeX lengths in a variety of units}
+\ProvidesExplFile{\ExplFileName.\ExplFileExtension}
+  {\ExplFileDate}{\ExplFileVersion}{\ExplFileDescription}
+\RequirePackage{siunitx}
+\RequirePackage{xparse}
+\tl_set:Nn \c__xprintlen_precision_default_tl { 2 }
+\tl_set:Nn \c__xprintlen_unit_default_tl { mm }
+\keys_define:nn { xprintlen }
+  {
+    precision .tl_set:N  = \l__xprintlen_precision_tl ,
+    precision .value_required: ,
+    precision .initial:n = { \c__xprintlen_precision_default_tl } ,
+    unit      .tl_set:N  = \l__xprintlen_unit_tl ,
+    unit      .value_required: ,
+    unit      .initial:n = { \c__xprintlen_unit_default_tl } ,
+  }
+\ProcessKeysOptions { xprintlen }
+\DeclareDocumentCommand { \xplsetup } { m }
+  { \keys_set:nn { xprintlen } {#1} }
+\cs_new_protected:Npn \__xprintlen_new_unit:w #1 #2
+  {
+    \cs_new_nopar:cpn { __fp_parse_word_#1:N }
+      {
+        \__fp_exp_after_f:nw { \__fp_parse_infix:NN }
+        \s__fp \__fp_chk:w 10 #2 ;
+      }
+  }
+\pdftex_if_engine:T
+  {
+    \__xprintlen_new_unit:w {px} { {1} {1003} {7500} {0000} {0000} }
+  }
+\cs_new:Npn \__xprintlen_convert_dim #1#2
+  {
+    \fp_eval:n { (#1) / (1#2) }
+  }
+\cs_new:Npn \__xprintlen_output_result #1#2#3
+  {
+    \SI [ round-mode = places, round-precision = #1 ]
+        {#2} {#3}
+  }
+\NewDocumentCommand {\printlen}
+  { O{ \l__xprintlen_precision_tl } O{ \l__xprintlen_unit_tl } m}
+  {
+    \__xprintlen_output_result {#1}
+    {
+      \__xprintlen_convert_dim {#3} {#2}
+    }
+    {#2}
+  }
+\endinput
+%% -----------------------------------
+%% This work consists of the file  xprintlen.dtx
+%% and the derived files           xprintlen.sty,
+%%                                 xprintlen.pdf,
+%%                                 README and
+%%                                 LICENSE.
 %%
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{xprintlen}[2014/12/25 v1.0 print lengths with units]
-\RequirePackage{fp}
-\newlength{\CMarg}
-\newlength{\CMunit}
-\newcommand{\CMspace}{\,}
-\newcommand{\defaultunit}{mm}
-\newcommand{\defaultsignificant}{2}
-\newcommand*{\printlen}[1][\defaultsignificant]{%
-  \providecommand{\printlenFirstParameter}{}%
-  \renewcommand{\printlenFirstParameter}{#1}%
-  \printlenCalculate%
-}
-\newcommand*{\printlenCalculate}[2][\defaultunit]{%
-  \setlength{\CMunit}{1#1}%
-  \setlength{\CMarg}{#2}%
-  \FPdiv\CMres{\strip@pt\CMarg}{\strip@pt\CMunit}%
-  \FPround\CMres\CMres{\printlenFirstParameter}%
-  \CMres\CMspace\texttt{#1}%
-}
+%% End of file `xprintlen.sty'.

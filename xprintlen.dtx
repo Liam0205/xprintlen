@@ -1,0 +1,426 @@
+% \iffalse meta-comment
+%
+% This is file `xprintlen.dtx'.
+%
+% Copyright (C) 2014 -- 2015 by Liam Huang
+% -----------------------------------
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Liam Huang.
+%
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+                      =========================
+                        The xprintlen Package
+                      =========================
+
+
+Introduction
+------------
+
+This package defines a command, \printlen, to print lengths
+in a variety of units.
+
+This work is released under the LaTeX Project Public License,
+v1.3c or later. See the License file.
+
+Installation
+------------
+
+This package consists of the files xprintlen.sty,
+                                   xprintlen.tex,
+                                   xprintlen.pdf,
+                                   ex01.png,
+                                   README,
+                                   LICENSE.
+
+* Copy the files into proper directories searched by TeX.
+  TDS tree:
+
+    TEXMF/doc/latex/xprintlen/xprintlen.tex
+    TEXMF/doc/latex/xprintlen/xprintlen.pdf
+    TEXMF/doc/latex/xprintlen/ex01.png
+    TEXMF/doc/latex/xprintlen/README
+    TEXMF/doc/latex/xprintlen/LICENSE
+    TEXMF/tex/latex/xprintlen/xprintlen.sty
+
+* Run texhash to refresh file name data base.
+
+Basic Usage
+-----------
+
+You can read the PDF document for detailed explanations.
+
+Author
+------
+
+Liam Huang
+
+Email: liamhuang0205+xprintlen@gmail.com
+
+If you are interested in the process of development you may observe
+
+    https://github.com/LiamHuang0205/xprintlen
+%</readme>
+%<*license>
+Released under the [LaTeX Project Public License]
+(http://www.latex-project.org/lppl.txt), v1.3c or later.
+
+The package has status 'maintained': the current maintainer is
+[Liam Huang](liamhuang0205+xprintlen@gmail.com).
+%</license>
+%<*internal>
+\fi
+\begingroup
+  \def\ltxename{LaTeX2e}
+\expandafter\endgroup\ifx\ltxename\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input l3docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+
+-----------------------------------
+
+This is a generated file.
+
+Copyright (C) 2014 -- 2015 by Liam Huang
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or (at your option) any later version.
+The latest version of this license is in
+  http://www.latex-project.org/lppl.txt
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+This work has the LPPL maintenance status `maintained'.
+
+The Current Maintainer of this work is Liam Huang.
+
+\endpreamble
+\postamble
+-----------------------------------
+This work consists of the file  \jobname.dtx
+and the derived files           \jobname.sty,
+                                \jobname.pdf,
+                                README and
+                                LICENSE.
+\endpostamble
+
+\generate{%
+  \usedir{tex/latex/\jobname}%
+  \file{\jobname.sty}{\from{\jobname.dtx}{style}}%
+  \usedir{doc/latex/\jobname}%
+  \nopreamble\nopostamble
+  \file{README.md}{\from{\jobname.dtx}{readme}}%
+  \file{LICENSE.md}{\from{\jobname.dtx}{license}}%
+}
+\obeyspaces
+\Msg{*********************************************************}
+\Msg{*                                                       *}
+\Msg{* To finish the installation you have to move the       *}
+\Msg{* following file into a directory searched by TeX:      *}
+\Msg{*                                                       *}
+\Msg{*    \jobname.sty                                      *}
+\Msg{*                                                       *}
+\Msg{* To produce the user manual run the file \jobname.dtx *}
+\Msg{* through XeLaTeX.                                      *}
+\Msg{*                                                       *}
+\Msg{* Happy TeXing!                                         *}
+\Msg{*********************************************************}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<style>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<*driver|style>
+\RequirePackage{expl3}
+%</driver|style>
+%<*driver>
+\GetIdInfo$Id: xprintlen.dtx 2.0a 2015-01-26$
+  {xprintlen source file}
+%</driver>
+%<style>\GetIdInfo$Id: xprintlen.sty 2.0a 2015-01-26$
+%<style>  {Print TeX lengths in a variety of units}
+%<*driver|style>
+\ProvidesExplFile{\ExplFileName.\ExplFileExtension}
+  {\ExplFileDate}{\ExplFileVersion}{\ExplFileDescription}
+%</driver|style>
+%<*driver>
+\ExplSyntaxOff
+\documentclass{l3doc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\usepackage{xcolor}
+\usepackage{hologo}
+%^^A\usepackage{minted}
+\newcommand{\self}{\pkg{\jobname}}
+\newcommand{\TODO}{\textcolor{blue}{\sffamily\bfseries TODO}}
+\DeclareRobustCommand{\eTeX}{\hologo{eTeX}}
+\DeclareRobustCommand{\pdfTeX}{\hologo{pdfTeX}}
+\providecommand{\file}{\textsf}
+\providecommand{\path}{\texttt}
+\newcommand{\option}{\textsf}
+\newcommand{\texunit}{\textsf}
+% ^^A\AtEndDocument{\PrintChanges}
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{37}
+%
+% \changes{v1.0}{2013/12/25}{The first public release.}
+% \changes{v2.0}{2015/01/26}{Use \pkg{l3fp} to calculate.}
+%
+% \GetFileInfo{\jobname.dtx}
+%
+% \DoNotIndex{\test}
+%
+% \title{The \pkg{\jobname} Package\thanks{This Document
+%   corresponds to \textsf{\jobname}~\ExplFileVersion,
+%   dated \ExplFileDate.}~\thanks{This work is released under
+%   the LaTeX Project Public License
+%   (\url{http://www.latex-project.org/lppl.txt}), v1.3c or later.}}
+% \author{Liam Huang \\ \href{mailto:liamhuang0205+\jobname@gmail.com}
+%   {liamhuang0205+\jobname@gmail.com}}
+% \date{\ExplFileDate}
+%
+% \maketitle
+%
+% \begin{abstract}
+% The \pkg{\jobname} package is designed to print \TeX{} lengths in a
+% variety of units. It uses \pkg{l3fp} to do the calculating and uses
+% \pkg{siunitx} to print the result.
+% \end{abstract}
+%
+% \section{Requirements}
+%
+% \self{} requires the following packages. Please make sure these packages
+% are available and reasonably up to date on your system.
+%
+% \begin{itemize}
+%   \item \pkg{expl3},
+%   \item \pkg{xparse},
+%   \item \pkg{siunitx}.
+% \end{itemize}
+%
+% \section{Installation}
+%
+% To install this package, you should
+% \begin{itemize}
+%   \item copy \file{xprintlen.sty} to \path{TEXMF/tex/latex/xprintlen},
+%   \item copy \file{xprintlen.dtx} to \path{TEXMF/source/latex/xprintlen} and
+%   \item copy other files to \path{TEXMF/doc/latex/xprintlen}.
+% \end{itemize}
+%
+% \section{Usage}
+%
+% \subsection{Options}
+% The package has serval options described below. You could specify them
+% at the time you load the package, while there is a \cs{xplsetup} provided
+% to do this later. These two method share the same effect.
+%
+% \begin{function}[added = 2015-01-26]{\xplsetup}
+%   \begin{syntax}
+%     \cs{xplsetup}\marg{key-value list}
+%   \end{syntax}
+% The \option{precision} option is used to define the default
+% precision of rounding.
+% Be aware that this is an option that requires a value, and if no value
+% given, an error would be raised.
+%
+% The \option{unit} option is used to define the default unit to be
+% converted to.
+% This option is also requiring a value, and will raise an error if no value
+% give.
+% \end{function}
+% \subsection{\cs{printlen}}
+% \begin{function}[added = 2014-12-25, updated = 2015-01-26]{\printlen}
+% \begin{syntax}
+%   \cs{printlen}\oarg{precision}\oarg{unit}\marg{dim to be converted}
+% \end{syntax}
+% \cs{printlen} recieves three arguments. The first two are optional while
+% the last is mandatory. The first optional argument sets the precision, the
+% length of digits behind the decimal dot. The default precision is 2.
+% The second optional argument sets the unit that is to be converted to, whose
+% default is \texunit{mm}. The last mandatory argument is the dim to
+% be comverted.
+% \end{function}
+%
+% \section{Change Log}
+%
+% \subsection*{Version 1.0, 2014/12/25}
+% \begin{itemize}
+%   \item The first public release.
+% \end{itemize}
+%
+% \StopEventually{}
+%
+% \section{The Implementation}
+%    \begin{macrocode}
+%<*style>
+%<@@=xprintlen>
+%    \end{macrocode}
+%
+% \subsection{Loading Packages}
+%
+% \pkg{siunitx} is used to round the results and print them and \pkg{xparse}
+% is required to define user commands.
+%    \begin{macrocode}
+\RequirePackage{siunitx}
+\RequirePackage{xparse}
+%    \end{macrocode}
+%
+% \subsection{Options}
+% We use \pkg{l3keys} to define options.
+%
+% Firstly, default values should be defined as constant values.
+%    \begin{macrocode}
+\tl_set:Nn \c_@@_precision_default_tl { 2 }
+\tl_set:Nn \c_@@_unit_default_tl { mm }
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\keys_define:nn { xprintlen }
+  {
+%    \end{macrocode}
+%
+% The \option{precision} option is used to define the default
+% precision of rounding.
+% Be aware that this is an option that requires a value, and if no value
+% given, an error would be raised.
+%    \begin{macrocode}
+    precision .tl_set:N  = \l_@@_precision_tl ,
+    precision .value_required: ,
+    precision .initial:n = { \c_@@_precision_default_tl } ,
+%    \end{macrocode}
+%
+% The \option{unit} option is used to define the default unit to be
+% converted to.
+% This option is also requiring a value, and will raise an error if no value
+% give.
+%    \begin{macrocode}
+    unit      .tl_set:N  = \l_@@_unit_tl ,
+    unit      .value_required: ,
+    unit      .initial:n = { \c_@@_unit_default_tl } ,
+  }
+%    \end{macrocode}
+%    \begin{macrocode}
+\ProcessKeysOptions { xprintlen }
+%    \end{macrocode}
+%
+% \begin{macro}{\xplsetup}
+% \begin{syntax}
+%   \cs{xplsetup}\marg{key-value list}
+% \end{syntax}
+% User command to set the options.
+%    \begin{macrocode}
+\DeclareDocumentCommand { \xplsetup } { m }
+  { \keys_set:nn { xprintlen } {#1} }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Defining \texunit{px} if using \pdfTeX}
+% \begin{function}[added = 2015-01-26]{\@@_new_unit:w}
+% \cs{@@_new_unit:w} is used to define \cs{__fp_parse_word_\#1:N} which
+% would be used by \pkg{l3fp} to test if \cs{\#1} is a valid \TeX{} unit.
+% Since \texunit{px} is not a Knuth \TeX{}'s unit, and is not defined by
+% \pkg{l3fp} itself, we should define this by ourselves.
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_new_unit:w #1 #2
+  {
+    \cs_new_nopar:cpn { __fp_parse_word_#1:N }
+      {
+        \__fp_exp_after_f:nw { \__fp_parse_infix:NN }
+        \s__fp \__fp_chk:w 10 #2 ;
+      }
+  }
+%    \end{macrocode}
+% \end{function}
+%
+% Declare \cs{__fp_parse_word_px:N}, if we are working under \pdfTeX.
+% Note that, $ \texunit{px} = \texunit{bp} $.
+%    \begin{macrocode}
+\pdftex_if_engine:T
+  {
+    \@@_new_unit:w {px} { {1} {1003} {7500} {0000} {0000} }
+  }
+%    \end{macrocode}
+% \subsection{Main}
+% \begin{function}[added = 2015-01-26]{\@@_convert_dim}
+% \begin{syntax}
+%   \cs{@@_convert_dim}\marg{dim to be converted}\marg{unit to be converted to}
+% \end{syntax}
+% This is the main function for calculating. \cs{fp_eval} from \pkg{l3fp} is
+% used to do the job. \cs{@@_convert_dim} absorbs two mandatory arguments,
+% while the first is the \meta{dim to be convert} and the second is the
+% \meta{unit to be converted to}, the second one, should be a valid unit of
+% current \TeX{} engine.
+%
+% \texunit{zw} and \texunit{zh} defined by p\TeX{} series are not supported
+% at present, but will soon be taken into the list.
+%    \begin{macrocode}
+\cs_new:Npn \@@_convert_dim #1#2
+  {
+    \fp_eval:n { (#1) / (1#2) }
+  }
+%    \end{macrocode}
+% \end{function}
+%
+% \begin{function}[added = 2015-01-26]{\@@_output_result}
+% \begin{syntax}
+%   \cs{@@_output_result}\marg{precision}\marg{value}\marg{unit}
+% \end{syntax}
+% This is the function used to print the result. It uses \cs{SI} from the
+% \pkg{siunitx} package and its options to round the \meta{value} and to
+% typeset the unit.
+%    \begin{macrocode}
+\cs_new:Npn \@@_output_result #1#2#3
+  {
+    \SI [ round-mode = places, round-precision = #1 ]
+        {#2} {#3}
+  }
+%    \end{macrocode}
+% \end{function}
+%
+% \begin{macro}{\printlen}
+% \begin{syntax}
+%   \cs{printlen}\oarg{precision}\oarg{unit}\marg{dim to be converted}
+% \end{syntax}
+% This is the user command. The first two arguments are optional and their
+% default are respectively \cs{l_@@_precision_tl} and \cs{l_@@_unit_tl}.
+%    \begin{macrocode}
+\NewDocumentCommand {\printlen}
+  { O{ \l_@@_precision_tl } O{ \l_@@_unit_tl } m}
+  {
+    \@@_output_result {#1}
+    {
+      \@@_convert_dim {#3} {#2}
+    }
+    {#2}
+  }
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macrocode}
+%</style>
+%<style>\endinput
+%    \end{macrocode}
+% \Finale
+\endinput
